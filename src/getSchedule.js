@@ -60,9 +60,6 @@ function getSchedule(scheduleTarget) {
     || (!days.includes(scheduleTarget) && !animalNames.includes(scheduleTarget))) {
     return noEntrance();
   }
-  if (scheduleTarget === 'Monday') {
-    return monday();
-  }
   if (days.includes(scheduleTarget)) {
     return weekDays(scheduleTarget);
   }
