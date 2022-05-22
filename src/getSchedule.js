@@ -24,15 +24,15 @@ const noEntrance = () => {
   return obj;
 };
 
-const monday = () => {
-  const obj = {
-    Monday: {
-      officeHour: 'CLOSED',
-      exhibition: 'The zoo will be closed!',
-    },
-  };
-  return obj;
-};
+// const monday = () => {
+//   const obj = {
+//     Monday: {
+//       officeHour: 'CLOSED',
+//       exhibition: 'The zoo will be closed!',
+//     },
+//   };
+// return obj;
+// };
 const createObj = (dia, obj) => {
   const objeto = {
   };
