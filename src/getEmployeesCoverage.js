@@ -26,11 +26,25 @@ const usingName = (name) => {
   return answer;
 };
 
+const usingId = (id) => {
+  const name = (employees.find((employee) => employee.id === id)).firstName;
+  return usingName(name);
+};
+
 function getEmployeesCoverage(obj) {
+  if (!obj) {
+    return employees.map((employee) => usingName(employee.firstName));
+  }
   const { name, id } = obj;
   if (name) {
+    // Falar sobre o grau de complexidade;
     return usingName(name);
   }
+  if (id) {
+    try {
+      return usingId(id);
+    } catch (err) { throw new Error('Informações inválidas'); }
+  }
 }
-console.log(getEmployeesCoverage({ name: 'Sharonda' }));
+console.log(getEmployeesCoverage());
 module.exports = getEmployeesCoverage;
