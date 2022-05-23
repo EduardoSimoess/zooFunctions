@@ -1,6 +1,9 @@
 const handlerElephants = require('../src/handlerElephants');
 
 describe('Testes da função HandlerElephants', () => {
+  it('handlerElephants é uma função', () => {
+    expect(typeof handlerElephants).toBe('function');
+  });
   it('Ao não receber nenhum parâmetro a funções retorna um valor "undefined"', () => {
     expect(handlerElephants()).toBeUndefined();
   });
@@ -18,7 +21,19 @@ describe('Testes da função HandlerElephants', () => {
     const array = ['Ilana', 'Orval', 'Bea', 'Jefferson'];
     expect(handlerElephants('names')).toEqual(array);
   });
-  it('Ao receber "averageAge" é retornada a média da idade dos elefantes', () => {
+  it('Ao receber "averageAge" é retornada a localização dos elefantes', () => {
     expect(handlerElephants('averageAge')).toBeCloseTo(10.5, 5);
+  });
+  it('Ao receber "location" é retornada a média da idade dos elefantes', () => {
+    expect(handlerElephants('location')).toBe('NW');
+  });
+  it('Ao receber "popularity" é retornada a população de elefantes', () => {
+    expect(handlerElephants('popularity')).toBe(5);
+  });
+  it('Ao receber "availability" é retornada a disponibilidade dos elefantes', () => {
+    expect(handlerElephants('availability')).toEqual(['Friday', 'Saturday', 'Sunday', 'Tuesday']);
+  });
+  it('Ao receber uma propriedade não descrita retornar o valor null', () => {
+    expect(handlerElephants('availabilit')).toBe(null);
   });
 });
