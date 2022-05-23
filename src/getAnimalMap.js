@@ -1,4 +1,4 @@
-const { species } = require('../data/zoo_data');
+// const { species } = require('../data/zoo_data');
 const data = require('../data/zoo_data');
 
 // const locationArray = ['NE', 'NW', 'SE', 'SW'];
@@ -15,7 +15,7 @@ const data = require('../data/zoo_data');
 //     }
 //   }));
 // };
-console.log(noArgument());
+// console.log(noArgument());
 function getAnimalMap(options) {
   if (!options) {
     // oi
