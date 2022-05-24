@@ -1,25 +1,50 @@
-// const { species } = require('../data/zoo_data');
+const {
+  species,
+} = require('../data/zoo_data');
 const data = require('../data/zoo_data');
 
-// const locationArray = ['NE', 'NW', 'SE', 'SW'];
-// const noArgument = () => {
-//   const obj = {};
-//   // const ne = species.filter((specie) => specie.location === locationArray[0]);
-//   // const nw = species.filter((specie) => specie.location === locationArray[1]);
-//   // const se = species.filter((specie) => specie.location === locationArray[2]);
-//   // const sw = species.filter((specie) => specie.location === locationArray[3]);
-//   const speciesNames = species.map((specie) => specie.name);
-//   return locationArray.map((location) => species.filter((specie, index) => {
-//     if (specie.location === location) {
-//       return speciesNames[index];
-//     }
-//   }));
-// };
-// console.log(noArgument());
+const locationArray = ['NE', 'NW', 'SE', 'SW'];
+
+const noArgument = () => {
+  const obj = {};
+  const hoolZooMap = locationArray.map((location) => species.filter((specie) => specie.location
+    === location));
+  hoolZooMap.forEach((location, index) => {
+    obj[locationArray[index]] = location.map((locationNames) => locationNames.name);
+  });
+  return obj;
+};
+
+const findAnimalNames = (animalName) => {
+  const animalResidents = (species.find((animal) => animal.name === animalName)).residents;
+  return animalResidents.map((resident) => resident.name);
+};
+const createObj = (array) => array.map((animal) => {
+  const obj = {};
+  obj[animal] = findAnimalNames(animal);
+  return obj;
+});
+
+const names = (truth) => {
+  const obj = {};
+  const animals = Object.values(noArgument());
+  const [NE, NW, SE, SW] = animals;
+  const array = [createObj(NE), createObj(NW), createObj(SE), createObj(SW)];
+  array.forEach((objetos, index) => {
+    obj[locationArray[index]] = objetos;
+  });
+  return obj;
+};
+
 function getAnimalMap(options) {
-  if (!options) {
-    // oi
-  }
+  if (!options) return noArgument();
+
+  const { includeNames } = options;
+  if (includeNames === true) return names();
+  // const { sort } = options;
+  // if (includeNames === true && sort === true)
+  return noArgument();
 }
+console.log(names());
 
 module.exports = getAnimalMap;
