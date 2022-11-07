@@ -1,6 +1,5 @@
 # Projeto Zoo Functions!
 
-<details>
 <summary><strong>🧑‍💻 Desenvolvimento</strong></summary><br />
 
   Utilizando `ES6`, `Higher Order Functions` e testes, organizar as informações de um zoológico! 🐘
@@ -11,8 +10,3 @@
 
   Esse projeto foi desenvolvido com base na prática de desenvolvimento orientado a testes para garantir um código de qualidade. Garantindo que a aplicação está funcionando da maneira correta! 🚀 
 
-<br />
-
-</details>
-	
-<details>
